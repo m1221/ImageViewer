@@ -1,0 +1,39 @@
+img {
+    display: block;
+    width: auto;
+    height: auto;
+    height: 80vh;
+    margin: 20px auto;
+    border-radius: 5px;
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+
+.metallic {
+    color: rgb(79, 93, 97);
+}
+
+#caption {
+    background-color: antiquewhite;
+    text-align: center;
+    font-size: 30px;
+}
+
+#tool-bar {
+    background-color: bisque;
+}
+
+#reveal {
+    background-color: cornsilk;
+    font-size: 80px;
+    position: fixed;
+    padding: 20px;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#shuffle-button {
+    position: absolute;
+    right: 1vw;
+}
