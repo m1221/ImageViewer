@@ -6,6 +6,7 @@ let index = -1;
 revealText.style.visibility = 'hidden';
 (function(){
     img.src = './starting-image.png';
+    caption.textContent = (index + 1) + ' of ' + filepaths.length;
 })();
 
 
