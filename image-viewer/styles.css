@@ -1,12 +1,11 @@
 img {
     display: block;
     width: auto;
-    height: auto;
     height: 80vh;
     margin: 20px auto;
-    border-radius: 5px;
-    max-width: 90vw;
-    max-height: 90vh;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 10px;
   }
 
 .metallic {
