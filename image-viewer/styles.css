@@ -31,6 +31,10 @@ img {
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border-style: ridge;
+    border-radius: 15px;
+    border-width: 5px;
+    border-color: black;
 }
 
 #shuffle-button {
