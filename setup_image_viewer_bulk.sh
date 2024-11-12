@@ -7,11 +7,13 @@
 #     2. extracts pathnames from the subdirectories of `./image-collections`
 #     3. writes those pathnames to `./image-viewer/filepaths.js`
 #
-# Usage: $ ./setup_image_viewer.sh
+# Usage: 
+#   i. extract pathnames of image files from all subdirectories
+#       $ ./setup_image_viewer_bulk.sh
+#   ii. extract pathnames of image files from target directories
+#       $ ./setup_image_viewer_bulk.sh ./image-collections/TARGET_DIRECTORY ...
 
 # 1. set up html DOM for basic viewing
-# NOTE: this step exists because I have an alternative script for personal use (not included in this repo) that writes a different HTML document
-# TODO: add another script to this repo that provides similar functionality to my private script
 cat << _EOF_ > ./image-viewer/image-viewer.html
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +63,6 @@ if [ "$1" == "" ]; then
 fi
 
 # 2b. if there is a positional argument, loop through positional arguments and get the files in those directories
-
 for dir_path in "$@"
 do
   for filename in $(ls $dir_path)
