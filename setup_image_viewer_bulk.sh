@@ -3,9 +3,8 @@
 # Author: Mario Portocarrero
 # Description:
 #   This script:
-#     1. writes to `./image-viewer/image-viewer.html`
-#     2. extracts pathnames from the subdirectories of `./image-collections`
-#     3. writes those pathnames to `./image-viewer/filepaths.js`
+#     1. extracts pathnames from the subdirectories of `./image-collections`
+#     2. writes those pathnames to `./image-viewer/filepaths.js`
 #
 # Usage: 
 #   i. extract pathnames of image files from all subdirectories
@@ -13,37 +12,11 @@
 #   ii. extract pathnames of image files from target directories
 #       $ ./setup_image_viewer_bulk.sh ./image-collections/TARGET_DIRECTORY ...
 
-# 1. set up html DOM for basic viewing
-cat << _EOF_ > ./image-viewer/image-viewer.html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Viewer</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <img id="img" alt="alt text"> 
-    <div id="caption"></div>
-	<div id="tool-bar">
-        <button onclick="GoToPreviousImage()">previous</button>
-        <button onclick="GoToNextImage()">next</button>
-        <button onclick="RevealSource()">reveal</button>
-        <button onclick="Shuffle()" id="shuffle-button">shuffle</button>
-    </div>
-    <p id="reveal">filler text</p>
-  </body>
-  <script src="filepaths.js"></script>
-  <script src="script.js"></script>
-</html>
-_EOF_
-
-# 2. store pathnames of image files in the pathnames variable
+# 1. store pathnames of image files in the pathnames variable
 IMAGE_COLLECTIONS="image-collections"
 pathnames=""
 
-# 2a. if no positional arguments, include all filenames from "./image-collections" in filepaths.js
+# 1a. if no positional arguments, include all filenames from "./image-collections" in filepaths.js
 if [ "$1" == "" ]; then
   for image_dir in $(ls $IMAGE_COLLECTIONS)
   do
@@ -62,7 +35,7 @@ if [ "$1" == "" ]; then
   exit 0
 fi
 
-# 2b. if there is a positional argument, loop through positional arguments and get the files in those directories
+# 1b. if there is a positional argument, loop through positional arguments and get the files in those directories
 for dir_path in "$@"
 do
   for filename in $(ls $dir_path)
