@@ -1,6 +1,17 @@
 #! /bin/bash
+# Date: 2024/11/12
+# Author: Mario Portocarrero
+# Description:
+#   This script:
+#     1. writes to `./image-viewer/image-viewer.html`
+#     2. extracts pathnames from the subdirectories of `./image-collections`
+#     3. writes those pathnames to `./image-viewer/filepaths.js`
+#
+# Usage: $ ./setup_image_viewer.sh
 
 # 1. set up html DOM for basic viewing
+# NOTE: this step exists because I have an alternative script for personal use (not included in this repo) that writes a different HTML document
+# TODO: add another script to this repo that provides similar functionality to my private script
 cat << _EOF_ > ./image-viewer/image-viewer.html
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +37,7 @@ cat << _EOF_ > ./image-viewer/image-viewer.html
 </html>
 _EOF_
 
-# 2. set up 'filepaths' variable in js for images
+# 2. store pathnames of image files in the pathnames variable
 IMAGE_COLLECTIONS="image-collections"
 pathnames=""
 
