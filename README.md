@@ -1,16 +1,35 @@
 # About **Image Viewer**
+**Image Viewer** is:
+* two local, flashcard-like, browser-based apps ("Image Viewer Bulk" and "Image Viewer Selectable")
+    * Image Viewer Bulk displays an image carousel that has images from the pathnames collected via `setup_image_viewer_bulk.sh`
+    * Image Viewer Selectable displays a selection screen which allows the user to select subdirectories. The contents of selected subdirectories are displayed in the image carousel.
+* two shell scripts to make those apps functional
+    * `setup_image_viewer_bulk.sh`
+    * `setup_image_viewer_selectable.sh`
 
-Image Viewer is a local, flashcard-like, browser-based app. 
+*below: when using image-viewer-selectable.html, a user can select which categories to display*
 
-To set it up:
-1. put a directory with image files in the `image-collections` directory
-1. navigate to the root directory
-1. run the bash script `./setup_image_view.sh`
+<img src="selectable-preview.jpg" alt="when using image-viewer-selectable.html, a user can select which categories to display" width="600" height="auto"/>
 
-The script checks all directories within the `image-collections` directory, extracts the pathnames of the files in those directories, and adds those pathnames to a javascript file that is used by `image-viewer.html`.
+## 1. Requirements
 
-Please note that you should give your image files useful names; pressing the 'reveal' button in the browser app will display a name extracted from the filename.
+* Bash
+* Browser (has only been run on Firefox 132.0)
 
-After you've set it up, you can open `image-viewer.html` to view the image files.
+## 2. How to Use
 
-<img src="image-viewer-preview.jpg" alt="preview" width="600" height="auto"/>
+1. place ***directories*** with image files in the `image-collections` directory
+    * NOTE: if you put your image files directly into `image-collections`, they will not be recorded
+1. give your image files user-friendly names; use hyphens instead of spaces
+    * pressing the 'reveal' button in the browser will display a name extracted from the filename
+        * eg "dog-collar" => "dog collar"
+1. ues bash to run the shell script of your choice (bulk vs selectable)
+1. use a browser to open the html doc of your choice (bulk vs selectable)
+
+*below: the image "1" has a filename "01"*
+
+<img src="image-carousel.jpg" alt="preview" width="600" height="auto"/>
+
+## 3. Adding Special Characters (-'")
+
+coming soon!
