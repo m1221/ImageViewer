@@ -57,7 +57,6 @@ function Initialize(){
     let temp = [];
     for (dirName in categories.buttonRefs){
         let buttonStatus = categories.buttonRefs[dirName].getAttribute('status');
-        console.log(categories.buttonRefs[dirName]);
         if (buttonStatus == "On"){
             temp = temp.concat(categories[dirName]);
         }
