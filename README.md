@@ -19,10 +19,11 @@
 ## 2. How to Use
 
 1. place ***directories*** with image files in the `image-collections` directory
-    * NOTE: if you put your image files directly into `image-collections`, they will not be recorded
+    * NOTE: if you put your image files directly into `image-collections`, their pathnames will not be recorded
 1. give your image files user-friendly names; use hyphens instead of spaces
     * pressing the 'reveal' button in the browser will display a name extracted from the filename
         * eg "dog-collar" => "dog collar"
+    * see **3. Displaying Special Characters** for how to add special characters
 1. ues bash to run the shell script of your choice (bulk vs selectable)
 1. use a browser to open the html doc of your choice (bulk vs selectable)
 
@@ -30,6 +31,9 @@
 
 <img src="image-carousel.jpg" alt="preview" width="600" height="auto"/>
 
-## 3. Adding Special Characters (-'")
+## 3. Displaying Special Characters
 
-coming soon!
+* use "aaa" to add an apostrophe (')
+    * "witchaaas-hat.jpg" -> "witch's hat"
+* use "hhh-" to add a hyphen (-)
+    * "hearthhh-warming.jpg" -> "heart-warming"

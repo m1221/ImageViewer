@@ -32,9 +32,24 @@ function GoToPreviousImage(){
 function RevealSource(){
     revealText.style.visibility = 'visible';
     let temp = filepaths[index].split("/");
-    let filename = (temp[temp.length -1]).replaceAll('-', ' ');
-    revealText.textContent = filename.split('.')[0].replace("SUBFIELD", "").replace("FIELD", "").trim();
-    
+    let filename = temp[temp.length -1]
+    revealText.textContent = GetDisplayName(filename);
+}
+
+String.prototype.rReplace = function(substring, replacement) {
+    index = this.lastIndexOf(substring);
+    if (index != -1){
+        return this.substring(0, index) + replacement + this.substring(index + substring.length);
+    }
+    return this.substring();
+}
+
+ // "my-image.jpg" => "my image"
+function GetDisplayName(filename){
+    let displayName = filename.split('.')[0].replace("-", " ");
+    displayName = displayName.rReplace("hhh ", "-");
+    displayName = displayName.rReplace("aaa", "'");
+    return displayName;
 }
 
 
