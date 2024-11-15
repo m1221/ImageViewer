@@ -14,6 +14,7 @@ function Update(){
     revealText.style.visibility = 'hidden';
     img.src = filepaths[index];
     caption.textContent = (index + 1) + ' of ' + filepaths.length;
+    console.log(index);
 }
 
 function GoToNextImage(){
@@ -37,7 +38,7 @@ function RevealSource(){
 }
 
 String.prototype.rReplace = function(substring, replacement) {
-    index = this.lastIndexOf(substring);
+    let index = this.lastIndexOf(substring);
     if (index != -1){
         return this.substring(0, index) + replacement + this.substring(index + substring.length);
     }
