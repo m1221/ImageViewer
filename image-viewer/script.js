@@ -1,13 +1,81 @@
 
+// 1. set up html object references
+let choices = document.getElementById('choices');
+let selectionScreen = document.getElementById('selection-screen');
+let carousel = document.getElementById('carousel');
 const img = document.getElementById('img');
 const caption = document.getElementById('caption');
 const revealText = document.getElementById('reveal');
-let index = -1;
+
+// 2. setup initial values, styles, and content
+carousel.style.display = "none";
 revealText.style.visibility = 'hidden';
+let index = -1;
 (function(){
     img.src = './starting-image.png';
     caption.textContent = (index + 1) + ' of ' + filepaths.length;
 })();
+
+// 3. set up categories object
+//      - it manages data regarding filepaths and category selection status
+const categories = {
+    "statuses": {},
+    "buttonRefs": {}
+};
+
+categories.addImage = function(filepath){
+    let splitPath = filepath.split('/');
+    let dirName = splitPath[splitPath.length - 2];
+    
+    if(!(dirName in categories)){
+        categories.statuses[dirName] = 'Off';
+        categories[dirName] = [filepath];
+        return;
+    }
+    categories[dirName].push(filepath);
+}
+
+for (filepath of filepaths){
+    categories.addImage(filepath);
+}
+
+// 4. add selection buttons for categories
+for (dirName in categories.statuses){
+    let button = document.createElement('div');
+    button.className = 'button';
+    button.innerText = `${dirName}`;
+    button.setAttribute('status', 'Off');
+    button.onclick = function(){
+        let sticky = dirName;
+        let status = this.getAttribute('status');
+        if (status == 'Off'){
+            this.setAttribute('status', 'On')
+        } else if (status == 'On'){
+            this.setAttribute('status', 'Off');
+        }
+        status = this.getAttribute('status');
+        categories.statuses[sticky] = status;
+    }
+    choices.appendChild(button);
+    categories.buttonRefs[dirName] = button;
+}
+
+/* Various Functions */
+
+function Initialize(){
+    let temp = [];
+    for (dirName in categories.buttonRefs){
+        let buttonStatus = categories.buttonRefs[dirName].getAttribute('status');
+        if (buttonStatus == "On"){
+            temp = temp.concat(categories[dirName]);
+        }
+    }
+    filepaths = temp;
+
+    selectionScreen.style.display = 'none';
+    carousel.style.display = 'inline';
+    document.getElementById('caption').textContent = (index + 1) + ' of ' + filepaths.length;
+}
 
 
 function Update(){

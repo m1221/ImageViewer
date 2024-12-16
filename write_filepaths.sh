@@ -8,7 +8,7 @@
 #
 # Usage: 
 #   i. extract pathnames of image files from all subdirectories
-#       $ ./setup_image_viewer_selectable.sh
+#       $ ./write_filepaths.sh
 
 # store pathnames of image files in the pathnames variable
 IMAGE_COLLECTIONS="image-collections"
@@ -27,5 +27,5 @@ do
     done
 done
 
-printf "let filepaths = [$pathnames \n];" > "./image-viewer/filepaths-for-selectable.js"
+printf "let filepaths = [$pathnames \n];" > "./image-viewer/filepaths.js"
 # printf "\n\nlet imageDirs = '$(ls $IMAGE_COLLECTIONS | xargs)'" >> "./image-viewer/filepaths.js"
